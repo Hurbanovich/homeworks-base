@@ -1,11 +1,9 @@
-package Hurdanovich.HomeWork;
+package Hurbanovich.HomeWork04;
 
-import java.io.OptionalDataException;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Task1 {
+public class Task4 {
     public static void main(String[] args) {
         Random pan = new Random();
         Scanner scan = new Scanner(System.in);
@@ -29,15 +27,16 @@ public class Task1 {
                 }
                 System.out.println();
             }
-            int summachet=0;
-            for (int i = 0; i < massiv.length; i++) {
-                for (j = 0; j < massiv[i].length; j++) {
-                    if (i==j && massiv[i][j]%2==0) {
-                        summachet +=massiv[i][j];
+            int symma =0;
+            for (int i = 0; i < massiv.length -1; i++) {
+                for (j = 0; j < n-1; j++) {
+                    if (i<j && massiv[i][j]%2==0 && massiv[i][j]!=0) {
+                        symma = symma + massiv[i][j];
                     }
                 }
             }
-            System.out.println("Сумма четных чисел главной диоганали = " + summachet);
+            System.out.println("Сумма четных элементов находящиеся над \n" +
+                    " побочной диагональю:" + symma);
         }else {
             System.out.println("Вы ввели не число");
         }

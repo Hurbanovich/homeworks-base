@@ -79,13 +79,11 @@ class Games {
             }
         }
     }
-    void cmpHod(){ int a;
+    void cmpHod(){
+        int a;
         int b;
         do{
-            for (int i = 0;i<3;i++) {
-                for (int j = 0; j < 3; j++) {
-                }
-            }
+
             a = rand.nextInt(3);
             b = rand.nextInt(3);
         }while (!proverkaCvobodnogoIndekca(a,b));

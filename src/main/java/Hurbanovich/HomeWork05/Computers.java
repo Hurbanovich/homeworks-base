@@ -3,8 +3,6 @@ package HomeWork05;
 import java.util.Random;
 import java.util.Scanner;
 
-import static HomeWork05.Task.faerr;
-
 class Computers {
     Scanner scan = new Scanner(System.in);
     Random ran = new Random();

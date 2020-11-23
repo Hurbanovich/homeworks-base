@@ -90,9 +90,9 @@ class Games {
         pole[a][b] = HODC;
     }
     boolean proverkaCvobodnogoIndekca(int a, int b){
-            if (a<0||b<0||a>=3||b>=3)
+            if (a<0||b<0||a>=3||b>=3) //проверка на правильность ведение
                 return false;
-            return pole[a][b] == PYSTO;
+            return pole[a][b] == PYSTO; //проверка сводность поле
     }
     boolean proverkaPolia(){
         for (int i = 0;i<3;i++)
@@ -107,8 +107,7 @@ class Games {
                     (pole[0][i] == pro && pole[1][i] == pro && pole[2][i] == pro))
                 return true;
             if ((pole[0][0] == pro && pole[1][1] == pro && pole[2][2] == pro) ||
-                (pole[2][0] == pro && pole[1][1] == pro &&
-                        pole[0][2] == pro))
+                (pole[2][0] == pro && pole[1][1] == pro && pole[0][2] == pro))
             return true;
         return false;
 

@@ -1,10 +1,34 @@
+package HomeWork07;
 
- /*
-        Создать по 3 реализации(Sony, Toshiba, Samsung) каждой запчасти(IHead, IHand, ILeg)
-        Класс SonyHead является примером реализацией головы от Sony.
-        Создайте 3 робота с разными комплектующими.
-        Например у робота голова и нога от Sony а, рука от Samsung.
-        У всех роботов вызовите метод action.
-        Среди 3-х роботов найдите самого дорогого.
-        */
+import HomeWork07.wardrobe.jacket.IJacket;
+import HomeWork07.wardrobe.jacket.NikeJacket;
+import HomeWork07.wardrobe.jacket.PumaJacket;
+import HomeWork07.wardrobe.jacket.ReebokJacket;
+import HomeWork07.wardrobe.pants.IPants;
+import HomeWork07.wardrobe.pants.NikePants;
+import HomeWork07.wardrobe.pants.PumaPants;
+import HomeWork07.wardrobe.pants.ReebokPants;
+import HomeWork07.wardrobe.persons.IPersons;
+import HomeWork07.wardrobe.persons.Persons;
+import HomeWork07.wardrobe.sneakers.ISneakers;
+import HomeWork07.wardrobe.sneakers.NikeSneakers;
+import HomeWork07.wardrobe.sneakers.PumaSneakers;
+import HomeWork07.wardrobe.sneakers.ReebokSneakers;
 
+public class Main {
+    public static void main(String[] args) {
+        IJacket nikeJacket=new NikeJacket();
+        IJacket pumaJacket=new PumaJacket();
+        IJacket reebokJacket=new ReebokJacket();
+        IPants nikePants=new NikePants();
+        IPants pumaPants=new PumaPants();
+        IPants reebokPants=new ReebokPants();
+        ISneakers nikeSneakers =new NikeSneakers();
+        ISneakers pumaSneakers =new PumaSneakers();
+        ISneakers reebokSneakers =new ReebokSneakers();
+        Persons man = new Persons(nikeJacket, pumaPants, reebokSneakers,"Dima");
+        man.towadrobe();
+        man.wadpobeOff();
+
+    }
+}

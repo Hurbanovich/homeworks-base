@@ -23,7 +23,8 @@ public class Task4 {
             if (a <= 0 && b > 0 && c > 0){
                 System.out.println("2");
         }else
-            if (a > 0 && b > 0 && c <= 0) {System.out.println("2");
+            if (a > 0 && b > 0 && c <= 0)
+            {System.out.println("2");
         }else System.out.println("0");
     }
 }

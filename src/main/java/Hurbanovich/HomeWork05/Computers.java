@@ -3,85 +3,93 @@ package HomeWork05;
 import java.util.Random;
 import java.util.Scanner;
 
-class Computers {
+class Computers implements PrintInfo{
+    private Protsesors protsesors;
+    private Hard hard;
+    private Ram ram;
+    private int inclusionResource;
+    private int faer;
+
+    public Computers() {
+        Random ran = new Random();
+        this.protsesors = new Protsesors();
+        this.hard = new Hard();
+        this.ram = new Ram();
+        this.inclusionResource = ran.nextInt(5)+1;
+    }
+
+    public Protsesors getProtsesors() {
+        return protsesors;
+    }
+
+    public Hard getHard() {
+        return hard;
+    }
+
+    public Ram getRam() {
+        return ram;
+    }
+
+    public int getInclusionResource() {
+        return inclusionResource;
+    }
+
+    public void setInclusionResource(int inclusionResource) {
+        this.inclusionResource = inclusionResource;
+    }
+
+
     Scanner scan = new Scanner(System.in);
     Random ran = new Random();
-    int schet;
-    int faer;
-    void schet() {
-       int chet=ran.nextInt(5)+1;
-        this.schet = chet;
-    }
-    void fae(){
-        faer= faer+1; }
 
-    void work() {
 
-        do {
-            if ((!proverkaFaer(faer))) { System.out.println("нельзя включить сгоревший комп");break;}
-            fae();
-            schet();
-            for (; true; ) {
-             if (!proverkaSchet(schet)) {
-               System.out.println("компу хана... кранты... капут... сгорел... эх Помянем");
-               break;
-           }
-             on();
-             if (!proverkaSchet(schet)) {
-                 System.out.println("компу хана... кранты... капут... сгорел... эх Помянем");
-                 break;
-           }
-           compInfo();
-           off();
-           if (!proverkaSchet(schet)) {
-               System.out.println("компу хана... кранты... капут... сгорел... эх Помянем");
-               break;
-           }
-         }break;
-       }while (proverkaFaer(faer));
-   }
-    void compInfo(){
-        Hard.hardParametr();
-        Ram.ramParametr();
-        Protsesors.protParamer();
-        System.out.println("мой ресурс: " + schet );
-    }
-   boolean proverkaOnOff(int a, int b) {
-       if (a == b)
-           return true;
-       return false;
-   }
-   Boolean proverkaSchet(int schet){
-       if (schet >0)
-           return true;
-       return false;
-   }
-    Boolean proverkaFaer(int faer){
-        if (faer <=0)
-            return true;
-        return false;
-    }
-    void on() {
-        int a;
-        int b;
-        a = ran.nextInt(2);
-        System.out.println(a);
-        b = scan.nextInt();
-        if (proverkaOnOff(a, b)) {
-            System.out.println("Привет! Tы меня включил вот мои параметры:");
-        }else { schet = 0; return; }
+    @Override
+    public void info(){
+        getProtsesors().info();
+        getHard().info();
+        getRam().info();
+        System.out.println("мой ресурс: " + inclusionResource );
     }
 
-    void off() {
-        schet--;
-        int a;
-        int b;
-        a = ran.nextInt(1);
-        System.out.println(a);
-        b = scan.nextInt();
-        if (proverkaOnOff(a, b)) {
+    public void on() {
+        if(chekInclusionResource()) {
+            int inputRandom;
+            int inputScanner;
+            inputRandom = ran.nextInt(2);
+            System.out.println(inputRandom);
+            inputScanner = scan.nextInt();
+            if (chekOnOff(inputRandom, inputScanner)) {
+                System.out.println("Привет! Tы меня включил вот мои параметры:");
+                info();
+            } else {
+                System.out.println("компу хана... кранты... капут... сгорел... эх Помянем");
+                inclusionResource = 0;
+            }
+        }else{
+            System.out.println("Нельзя включить сгоревший комп!");
+        }
+    }
+
+    public void off() {
+        inclusionResource--;
+        int inputRandom;
+        int inputScanner;
+        inputRandom = ran.nextInt(2);
+        System.out.println(inputRandom);
+        inputScanner = scan.nextInt();
+        if (chekOnOff(inputRandom, inputScanner)) {
             System.out.println("я OFF");
-        }else { schet = 0;return; }
+        }else {
+            System.out.println("компу хана... кранты... капут... сгорел... эх Помянем");
+            inclusionResource = 0;
+        }
+    }
+
+    public boolean chekInclusionResource(){
+        return inclusionResource != 0;
+    }
+    public boolean chekOnOff(int a, int b) {
+        return a == b;
     }
 
 }
